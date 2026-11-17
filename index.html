@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desafio Letra Cursiva 30 Dias</title>
-<meta name="description" content="Seu filho escrevendo em letra cursiva em 30 dias, com 10 minutinhos por dia. Rotina pronta, atividade certa pra cada dia, do traçado ao texto. Do 1º ao 3º ano.">
-<meta property="og:title" content="Desafio Letra Cursiva 30 Dias">
-<meta property="og:description" content="A atividade certa, na ordem certa, 10 minutos por dia. É só imprimir e aplicar.">
+<title>Desafio de Férias · Letra Cursiva 30 Dias</title>
+<meta name="description" content="Seu filho escrevendo em letra cursiva em 30 dias, trocando o celular por 10 minutinhos por dia nas férias. Rotina pronta, atividade certa pra cada dia, do traçado ao texto. Do 1º ao 3º ano.">
+<meta property="og:title" content="Desafio de Férias · Letra Cursiva 30 Dias">
+<meta property="og:description" content="Menos tela nas férias: a atividade certa, na ordem certa, 10 minutos por dia. É só imprimir e aplicar.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2f6fd6">
@@ -138,6 +138,7 @@
     .hero-acao .confianca { order: -1; justify-content: center; margin: 12px 0 20px; }
     .hero-acao .prova-mini { text-align: center; }
   }
+  @media (max-width: 819px) { .selo { font-size: .7rem; letter-spacing: .03em; padding: 6px 12px; position: relative; z-index: 2; } }
   @media (max-width: 819px) and (max-height: 720px) {
     .hero-visual { width: 64%; }
   }
@@ -506,26 +507,169 @@
     .cta-fixo { display: none; }
     footer { padding-bottom: 28px; }
   }
+
+  /* ========= Clima infantil: panda, brinquedos e material escolar (deco.js) ========= */
+  /* Fundo infantil: céu com morrinhos no topo e uma cor pastel em cada parte da página,
+     com bordinha de "nuvem" (ondinhas) entre uma parte e outra */
+  .hero { background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30C60 0 120 0 180 26s120-16 220-2v36H0z' fill='%23b7ec9a'/%3E%3Cpath d='M0 44c80-24 140-20 220 0s120-14 180-4v20H0z' fill='%2387d46b'/%3E%3C/svg%3E") bottom / 100% 58px no-repeat,
+      radial-gradient(circle at 12% 30%, rgba(255,255,255,.7) 0, transparent 30%),
+      linear-gradient(#bfe5ff 0%, #e2f3ff 45%, #fff4dc 100%); }
+  .vem { background: #6a4ae6; }
+  #produto { --fundo: #fff6d6; }
+  .dor { --fundo: #ffeef4; }
+  .contraste { --fundo: #e5f8ec; }
+  .feedbacks { --fundo: #e5f2ff; }
+  .bonus-sec { --fundo: #f0eaff; }
+  .oferta { --fundo: #fff3df; }
+  .faq { --fundo: #e5f2ff; }
+  .final { --fundo: var(--azul); }
+  #produto, .dor, .contraste, .feedbacks, .bonus-sec, .oferta, .faq { background:
+      radial-gradient(circle, rgba(255,255,255,.75) 3px, transparent 3.5px) 0 0 / 46px 46px,
+      radial-gradient(circle, rgba(255,255,255,.75) 3px, transparent 3.5px) 23px 23px / 46px 46px,
+      var(--fundo); }
+  .tem-deco:not(#topo)::before { content: ""; position: absolute; left: 0; right: 0; top: -15px; height: 16px; z-index: 2; pointer-events: none;
+    background: radial-gradient(circle at 50% 100%, var(--fundo) 15px, transparent 15.5px) 0 0 / 30px 16px repeat-x; }
+
+  /* Enfeites ficam atrás do conteúdo e nunca recebem clique */
+  .tem-deco { position: relative; overflow-x: clip; }
+  .tem-deco > :not(.deco) { position: relative; z-index: 1; }
+  .deco { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .deco-item { position: absolute; display: block; width: calc(var(--w) * 1.25); rotate: var(--giro);
+    animation-duration: 9s; animation-iteration-count: infinite; animation-timing-function: ease-in-out;
+    animation-delay: var(--atraso); animation-fill-mode: both; animation-play-state: paused; }
+  .deco-on .deco-item { animation-play-state: running; }
+  .deco-item svg { display: block; width: 100%; height: auto; overflow: visible; }
+  /* aparece, flutua um pouco e some; depois volta */
+  .deco-flutua { animation-name: deco-flutua; }
+  .deco-pisca { animation-name: deco-pisca; animation-duration: 4s; }
+  .deco-quica { animation-name: deco-quica; animation-duration: 1.6s; }
+  .deco-balanca { animation-name: deco-balanca; animation-duration: 3s; transform-origin: 50% 100%; }
+  .deco-voa { animation-name: deco-voa; animation-duration: 8s; }
+  .deco-decola { animation-name: deco-decola; animation-duration: 6s; }
+  .deco-fixo, .deco-sol { animation: none; }
+  .sol-raios { transform-box: view-box; transform-origin: 70px 70px; animation: sol-gira 24s linear infinite; }
+  @keyframes sol-gira { to { transform: rotate(360deg); } }
+  .deco-pipa { animation-name: deco-pipa; animation-duration: 5s; transform-origin: 50% 90%; }
+  @keyframes deco-pipa { 0%, 100% { transform: translate(0, 0) rotate(-6deg); } 50% { transform: translate(10px, -14px) rotate(8deg); } }
+  .deco-nuvem { animation-name: deco-nuvem; animation-duration: 14s; animation-timing-function: ease-in-out; }
+  @keyframes deco-nuvem { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(22px); } }
+  @keyframes deco-flutua {
+    0% { opacity: 0; transform: scale(.4) translateY(10px); }
+    10%, 80% { opacity: 1; }
+    12% { transform: scale(1) translateY(0); }
+    46% { transform: scale(1) translateY(-10px) rotate(5deg); }
+    80% { transform: scale(1) translateY(0); }
+    92%, 100% { opacity: 0; transform: scale(.4) translateY(10px); }
+  }
+  @keyframes deco-pisca {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0); }
+    15%, 60% { opacity: 1; transform: scale(1) rotate(15deg); }
+    38% { transform: scale(1.25) rotate(0); }
+    75% { opacity: 0; transform: scale(0) rotate(45deg); }
+  }
+  @keyframes deco-quica {
+    0%, 100% { transform: translateY(0) scale(1.08, .92); }
+    12% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) rotate(90deg); }
+  }
+  @keyframes deco-balanca { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+  @keyframes deco-voa {
+    0% { opacity: 0; transform: translate(40px, 14px) rotate(8deg); }
+    15%, 75% { opacity: 1; }
+    50% { transform: translate(-10px, -6px) rotate(-4deg); }
+    90%, 100% { opacity: 0; transform: translate(-60px, 8px) rotate(-10deg); }
+  }
+  @keyframes deco-decola {
+    0%, 100% { transform: translateY(4px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* Panda mascote no topo */
+  .hero-visual { position: relative; }
+  .panda-mascote { position: absolute; left: -3%; bottom: -5%; width: 30%; z-index: 3; pointer-events: none;
+    animation: panda-entra .8s .7s cubic-bezier(.3,1.5,.5,1) both; }
+  .panda-svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 6px 8px rgba(31,42,68,.18)); }
+  .panda-braco { transform-box: view-box; transform-origin: 115px 120px; animation: panda-acena 1.4s ease-in-out infinite; }
+  .panda-olhos { transform-box: fill-box; transform-origin: center; animation: panda-pisca 4.5s infinite; }
+  .panda-balao { position: absolute; bottom: 92%; left: 52%; white-space: nowrap;
+    background: var(--branco); color: var(--tinta); border: 3px solid var(--tinta); border-radius: 16px;
+    font-weight: 900; font-size: .82rem; line-height: 1.2; padding: 7px 11px; box-shadow: 0 4px 0 var(--tinta);
+    animation: balao-entra .5s 1.4s cubic-bezier(.3,1.6,.5,1) both, balao-boia 3s 2s ease-in-out infinite; transform-origin: 10% 100%; }
+  .panda-balao::after { content: ""; position: absolute; left: 14px; bottom: -11px; width: 14px; height: 14px;
+    background: var(--branco); border: solid var(--tinta); border-width: 0 3px 3px 0; transform: rotate(45deg) skew(10deg, 10deg); }
+  @keyframes panda-entra { from { opacity: 0; transform: translateY(40px) scale(.6); } to { opacity: 1; transform: none; } }
+  @keyframes panda-acena { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-22deg); } 50% { transform: rotate(6deg); } 75% { transform: rotate(-16deg); } }
+  @keyframes panda-pisca { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  @keyframes balao-entra { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+  @keyframes balao-boia { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+
+  /* Panda pequeno que espia pela lateral da tela e some */
+  .panda-espia { position: fixed; left: 0; top: 40vh; z-index: 40; width: 74px; pointer-events: none;
+    transform: translateX(-105%); transition: transform .55s cubic-bezier(.3,1.5,.5,1); }
+  .panda-espia > svg { display: block; width: 100%; height: auto; transform: rotate(90deg); }
+  .panda-espia.aparece { transform: translateX(-40%); }
+  .panda-espia.dir { left: auto; right: 0; transform: translateX(105%); }
+  .panda-espia.dir > svg { transform: rotate(-90deg); }
+  .panda-espia.dir.aparece { transform: translateX(40%); }
+  .espia-coracao { position: absolute; top: -18px; left: 62%; width: 20px; opacity: 0; }
+  .panda-espia.dir .espia-coracao { left: auto; right: 62%; }
+  .espia-coracao svg { display: block; width: 100%; height: auto; }
+  .panda-espia.aparece .espia-coracao { animation: espia-coracao 1.6s .5s ease-out both; }
+  @keyframes espia-coracao { 0% { opacity: 0; transform: translateY(8px) scale(.4); } 30% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-22px) scale(1); } }
+
+  /* Pandas/ursinho que sobem da beirada das seções quando a pessoa chega nelas */
+  .panda-sobe { position: absolute; bottom: -6px; width: 78px; transition: transform .7s cubic-bezier(.3,1.5,.5,1) .25s; }
+  .panda-sobe svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .panda-sobe.ps-esq { left: 5%; }
+  .panda-sobe.ps-dir { right: 5%; }
+  .panda-sobe.ps-urso { width: 64px; }
+  html.movimento .panda-sobe { transform: translateY(105%); }
+  html.movimento .deco-on .panda-sobe { transform: translateY(0); }
+  /* Panda espiando por trás do plano Premium */
+  .panda-plano { position: absolute; right: 16px; bottom: calc(100% - 22px); width: 78px; z-index: -1; pointer-events: none;
+    transition: transform .7s cubic-bezier(.3,1.5,.5,1) .3s; }
+  .panda-plano > svg { display: block; width: 100%; height: auto; }
+  .panda-plano .espia-coracao { left: auto; right: -6px; top: -4px; }
+  html.movimento .panda-plano { transform: translateY(70%); }
+  html.movimento .deco-on > .panda-plano { transform: translateY(0); }
+  html.movimento .deco-on > .panda-plano .espia-coracao { animation: espia-coracao 1.8s 1s ease-out infinite; }
+  @media (min-width: 820px) {
+    .panda-sobe, .panda-plano { width: 104px; }
+    .panda-sobe.ps-urso { width: 86px; }
+  }
+
+  @media (min-width: 820px) {
+    .deco-item { width: calc(var(--w) * 1.7); }
+    .panda-mascote { left: -8%; bottom: -8%; width: 28%; }
+    .panda-balao { font-size: .95rem; }
+    .panda-espia { width: 100px; }
+    #topo .deco-sol { right: 3% !important; top: 26px !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .deco-item, .sol-raios, .panda-mascote, .panda-braco, .panda-olhos, .panda-balao, .espia-coracao { animation: none !important; opacity: 1; }
+    .panda-espia { display: none; }
+  }
 </style>
 </head>
 <body>
 
 <div class="dev-aviso" id="dev-aviso">MODO DESENVOLVIMENTO: os blocos laranja só aparecem no seu computador. <span id="dev-pendencias"></span></div>
 
-<div class="barra" id="barra-oferta" role="timer" aria-live="off">⏰ Oferta especial termina em <span class="timer" id="timer">15:00</span></div>
+<div class="barra" id="barra-oferta" role="timer" aria-live="off">☀️ Oferta de férias termina em <span class="timer" id="timer">15:00</span></div>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="topo">
   <div class="wrap hero-grid">
     <div class="hero-texto">
       <div class="hero-topo">
-        <span class="selo">✏️ Desafio Letra Cursiva 30 Dias</span>
+        <span class="selo">☀️ Desafio de Férias · Letra Cursiva 30 Dias</span>
         <h1>Seu filho escrevendo em letra cursiva em 30 dias
-          <span class="cursiva">com só 10 minutinhos por dia</span></h1>
+          <span class="cursiva">trocando o celular por 10 minutinhos por dia nas férias</span></h1>
       </div>
 
       <div class="hero-acao">
-        <p class="lead">Nada de ficar procurando folhinha. <b>Você imprime a atividade do dia, senta 10 minutos com ele e segue a sequência.</b> Do primeiro traçado até frases inteiras.</p>
+        <p class="lead">Férias não precisam ser só tela. <b>Você imprime a atividade do dia, senta 10 minutos com ele e segue a sequência.</b> Do primeiro traçado até frases inteiras.</p>
         <ul class="pilares">
           <li><span>🗓️</span>Rotina pronta de 30 dias</li>
           <li><span>🎯</span>A atividade certa pra cada dia</li>
@@ -695,7 +839,8 @@
     <h2>Você se identifica com alguma dessas situações?</h2>
     <p class="sub">Marque mentalmente as que já aconteceram aí em casa.</p>
     <ul class="checklist">
-      <li><span class="ic">🏫</span><span>A escola já pede <b>letra cursiva</b> e ele só faz de forma</span></li>
+      <li><span class="ic">📱</span><span>Nas férias ele passa o dia <b>no celular ou na TV</b></span></li>
+      <li><span class="ic">🎒</span><span>Tem medo de ele <b>esquecer o que aprendeu</b> até a volta às aulas</span></li>
       <li><span class="ic">📓</span><span>Você <b>não entende</b> o que está escrito no caderno</span></li>
       <li><span class="ic">😩</span><span>Na tarefa ele reclama e diz <b>"não consigo"</b></span></li>
       <li><span class="ic">🤷‍♀️</span><span>Você <b>não sabe por onde começar</b></span></li>
@@ -967,7 +1112,7 @@
 <!-- ===================== FINAL ===================== -->
 <section class="final" id="final">
   <div class="wrap">
-    <h2>Daqui a 30 dias, o caderno dele pode estar bem diferente</h2>
+    <h2>Em 30 dias de férias, o caderno dele pode voltar bem diferente</h2>
     <p>São 10 minutos por dia. A rotina diz o que fazer. As folhas fazem o resto. Você só precisa começar.</p>
     <span class="cursiva">Eu consigo!</span>
     <div class="cta-box" style="margin-top:22px"><a href="#comprar" class="btn cta-ancora" id="cta-final" data-cta="final">Quero começar o desafio</a></div>
@@ -1126,5 +1271,6 @@
 })();
 </script>
 <script src="effects.js"></script>
+<script src="deco.js"></script>
 </body>
 </html>
