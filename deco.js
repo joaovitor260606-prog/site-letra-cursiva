@@ -148,6 +148,14 @@
       '<rect x="2" y="1" width="8" height="3"/><rect x="8" y="2" width="6" height="2"/></g></svg>'
   };
 
+  // Ilustrações 3D (Fluent Emoji da Microsoft, licença MIT: uso comercial liberado), em img/3d/.
+  // Substituem os desenhos em código; o panda continua desenhado (preto e branco, como o exemplo).
+  ['lapis', 'caderno', 'arcoiris', 'sol', 'pipa', 'estrela', 'coracao', 'nuvem', 'ursinho', 'giz', 'livro'].forEach(function (n) {
+    D[n] = '<img src="img/3d/' + n + '.webp" alt="" width="256" height="256" loading="lazy" decoding="async">';
+  });
+  D.nuvemFofa = D.nuvem; D.cadernoAberto = D.livro;
+  D.bloco = D.livro; D.bola = D.coracao; D.foguete = D.estrela; D.aviao = D.nuvem;
+
   // Panda (desenho próprio, estilo cartoon: cabeça grande, olhos brilhantes, em pé). braco = braço que acena.
   var P = "#2e3448"; // preto do panda (um pouco azulado, mais fofo)
   function cabeca(cx, cy) {
@@ -201,7 +209,7 @@
   // Ficam nos cantos e margens das seções, longe do meio onde estão os textos.
   var LUGARES = {
     topo: [
-      ["sol", "top:4px;right:-14px", 72, "sol", 0, 0],
+      ["sol", "top:4px;right:-10px", 66, "balanca", 0, 0],
       ["nuvemFofa", "top:8px;left:-22px", 60, "nuvem", 0, 0],
       ["pipa", "top:44%;left:-10px", 34, "pipa", 0, -10],
       ["nuvemFofa", "top:52%;right:-34px", 54, "nuvem", 3, 0],

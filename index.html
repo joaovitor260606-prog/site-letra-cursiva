@@ -539,7 +539,8 @@
     animation-duration: 9s; animation-iteration-count: infinite; animation-timing-function: ease-in-out;
     animation-delay: var(--atraso); animation-fill-mode: both; animation-play-state: paused; }
   .deco-on .deco-item { animation-play-state: running; }
-  .deco-item svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .deco-item svg, .deco-item img { display: block; width: 100%; height: auto; overflow: visible; }
+  .deco-pisca { width: calc(var(--w) * 1.7); }
   /* aparece, flutua um pouco e some; depois volta */
   .deco-flutua { animation-name: deco-flutua; }
   .deco-pisca { animation-name: deco-pisca; animation-duration: 4s; }
@@ -614,13 +615,13 @@
   .panda-espia.dir.aparece { transform: translateX(40%); }
   .espia-coracao { position: absolute; top: -18px; left: 62%; width: 20px; opacity: 0; }
   .panda-espia.dir .espia-coracao { left: auto; right: 62%; }
-  .espia-coracao svg { display: block; width: 100%; height: auto; }
+  .espia-coracao svg, .espia-coracao img { display: block; width: 100%; height: auto; }
   .panda-espia.aparece .espia-coracao { animation: espia-coracao 1.6s .5s ease-out both; }
   @keyframes espia-coracao { 0% { opacity: 0; transform: translateY(8px) scale(.4); } 30% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-22px) scale(1); } }
 
   /* Pandas/ursinho que sobem da beirada das seções quando a pessoa chega nelas */
   .panda-sobe { position: absolute; bottom: -6px; width: 78px; transition: transform .7s cubic-bezier(.3,1.5,.5,1) .25s; }
-  .panda-sobe svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .panda-sobe svg, .panda-sobe img { display: block; width: 100%; height: auto; overflow: visible; }
   .panda-sobe.ps-esq { left: 5%; }
   .panda-sobe.ps-dir { right: 5%; }
   .panda-sobe.ps-urso { width: 64px; }
